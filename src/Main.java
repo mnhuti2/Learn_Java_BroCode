@@ -955,12 +955,227 @@ if(statement)
  */
 //________________49.Interfaces______________________________________
 /*
+    Interface =  A blueprint for a class that specifies a set of abstract methods
+                 that implementing classes MUST define.
+                 Supports multiple inheritance-like behavior
 
+    public interface Prey
+    {
+        void flee();
+    }
+    public interface Predator
+    {
+        void hunt();
+    }
+    public class Rabbit implements Prey
+    {
+        @Override
+        public void flee(){
+            System.out.println("Rabbit is running away");
+        }
+    }
+    public class Hawk implements Predator
+    {
+        @Override
+        public void hunt()
+        {
+            System.out.println("Hawk is hunting");
+        }
+    }
+    public class Fish implements Prey, Predator
+    {
+        @Override
+        public void flee()
+        {
+            System.out.println("Fish flee");
+        }
+        public void hunt()
+        {
+            System.out.println("Fish hunt");
+        }
+
+    }
  */
 //________________50.Polymorphism______________________________________
 /*
+    Polymorphism = "POLY" = "MANY"
+                   "MORPH" = "SHAPE"
+                    Objects can identify as other objects.
+                    Objects can be treated as objects of a common superclass.
+
+    public abstract class Vehicle
+    {
+        abstract void go();
+    }
+    public class Car extends Vehicle
+    {
+        @Override
+        void go()
+        {
+            System.out.println("You ride a car");
+        }
+    }
+    public class Bike extends Vehicle
+    {
+        @Override
+        void go()
+        {
+            System.out.println("You ride a bike");
+        }
+    }
+    public class Boat extends Vehicle
+    {
+        @Override
+        void go()
+        {
+            System.out.println("You sail a boat");
+        }
+    }
+    public static void main(String[] args)
+    {
+        Car car = new Car();
+        Bike bike = new Bike();
+        Boat boat = new Boat();
+
+        Vehicle[] vehicles = {car, bike, boat};
+        for (Vehicle vehicle : vehicles )
+        {
+            vehicle.go();
+        }
+    }
+*/
+//________________51.Runtime Polymorphism ______________________________________
+/*
+    Runtime polymorphism = When the method that gets executed is decided
+                           at runtime based on the actual type of the object.
+
+    public abstract class Animal
+    {
+        abstract void speak();
+    }
+    public class Dog extends Animal
+    {
+
+        @Override
+        void speak()
+        {
+            System.out.println("The dog goes *woof*");
+        }
+    }
+    public class Cat extends Animal
+    {
+        @Override
+        void speak()
+        {
+            System.out.println("The cat goes *meow*");
+        }
+    }
+    static public void main(String[] args)
+    {
+        Scanner sc = new Scanner();
+        Animal animal;
+        System.out.print("Would u like a dog or a cat? ( Enter 1 = cat, 2 = dog) : ");
+        int choice = sc.nextInt();
+        if(choice == 1)
+        {
+            animal = new Cat();
+            animal.speak();
+        }
+        else if(choice == 2)
+        {
+            animal = new Dog();
+            animal.speak();
+        }
+        else
+        {
+            System.out.println("Invalid choice");
+        }
+        sc.close();
+    }
 
  */
+//________________52.getters and setters ______________________________________
+/*
+    They help protect object data and add rules for accessing or modifying them.
+    GETTERS = Methods that make a field READABLE.
+    SETTERS = Methods that make a field WRITEABLE.
+
+    public class Car
+    {
+        private String model;
+        private String color;
+        private int price;
+
+        Car(String model, String color, int price)
+        {
+            this.model = model;
+            this.color = color;
+            this.price = price;
+        }
+        String getModel()
+        {
+            return this.model;
+        }
+        String getColor()
+        {
+            return this.color;
+        }
+        String getPrice()
+        {
+            return "$" + this.price;
+        }
+        void setColor(String color)
+        {
+            this.color = color;
+        }
+        void setPrice(int price)
+        {
+            this.price = price;
+        }
+    }
+    public static void main(String[] args)
+    {
+        Car car = new Car("Honda","Black",2000);
+
+        car.setColor("Blue");
+        car.setPrice(5000);
+
+        System.out.println(car.getColor() + " " + car.getModel() + " " + car.getPrice());
+    }
+
+ */
+//________________53.aggregation ______________________________________
+/*
+    Aggregation = Represents a "has-a" relationship between objects.
+                  One object contains another object as part of its structure,
+                  but the contained object/s can exist independently.
+
+ */
+//________________54.composition ______________________________________
+/*
+
+ */
+//________________55.wrapper class ______________________________________
+/*
+
+ */
+//________________56.arraylists ______________________________________
+/*
+
+ */
+//________________57.exception handling ______________________________________
+/*
+
+ */
+//________________58.write file ______________________________________
+/*
+
+ */
+//________________59.read files ______________________________________
+/*
+
+ */
+
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -970,14 +1185,12 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Circle circle = new Circle(3);
-        Triangle triangle = new Triangle(4,5);
-        Rectangle rectangle = new Rectangle(6,7);
+        Car car = new Car("Honda","Black",2000);
 
+        car.setColor("Blue");
+        car.setPrice(5000);
 
-        System.out.println(circle.area());
-        System.out.println(triangle.area());
-        System.out.println(rectangle.area());
+        System.out.println(car.getColor() + " " + car.getModel() + " " + car.getPrice());
 
     }
 }

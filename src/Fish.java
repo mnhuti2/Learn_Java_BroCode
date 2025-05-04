@@ -1,9 +1,15 @@
-public class Fish extends Animal
+public class Fish implements Prey, Predator
 {
 
     @Override
-    void move()
+    public void flee()
     {
-        System.out.println("This animal is swimming");
+        System.out.println("Fish flee");
     }
+
+    public void hunt()
+    {
+        System.out.println("Fish hunt");
+    }
+
 }

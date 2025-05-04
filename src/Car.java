@@ -1,22 +1,33 @@
 public class Car
 {
-    String make;
-    String model;
-    int year;
-    String color;
+    private String model;
+    private String color;
+    private int price;
 
-    Car(String make, String model, int year, String color)
+    Car(String model, String color, int price)
     {
-        this.make = make;
         this.model = model;
-        this.year = year;
+        this.color = color;
+        this.price = price;
+    }
+    String getModel()
+    {
+        return this.model;
+    }
+    String getColor()
+    {
+        return this.color;
+    }
+    String getPrice()
+    {
+        return "$" + this.price;
+    }
+    void setColor(String color)
+    {
         this.color = color;
     }
-
-    @Override
-    public String toString()
+    void setPrice(int price)
     {
-        return this.make + " " + this.model + " " + this.year + " " + this.color;
+        this.price = price;
     }
-
 }
